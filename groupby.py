@@ -49,7 +49,7 @@ df = df.drop('tm', axis=1)
 #print(df.head)
 
 
-#Start-Finishごとに、ロットNoとパレット枚数をキーに集計。日時は初回日時、規格は平均と標準偏差を計算
+#仕入れ先ごとに、品種とサイズをキーに集計。日時は初回日時、規格は平均と標準偏差を計算
 grouped0 = df[df['fg']==0].groupby(['item', 'size']).agg({'dt':np.min, 't1':[np.mean, np.std], 't2':[np.mean, np.std], 't3':[np.mean, np.std], 't4':[np.mean, np.std], 't5':[np.mean, np.std], 't6':[np.mean, np.std]})
 grouped1 = df[df['fg']==1].groupby(['item', 'size']).agg({'dt':np.min, 't1':[np.mean, np.std], 't2':[np.mean, np.std], 't3':[np.mean, np.std], 't4':[np.mean, np.std], 't5':[np.mean, np.std], 't6':[np.mean, np.std]})
 
